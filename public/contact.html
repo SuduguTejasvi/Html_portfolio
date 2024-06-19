@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contact Page</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script>
+            // JavaScript to highlight the active link
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the current URL path
+                const currentPath = window.location.pathname;
+                
+                // Select all navbar links
+                const navbarLinks = document.querySelectorAll(".navbar a");
+                
+                // Loop through each link
+                navbarLinks.forEach(link => {
+                    // Extract the pathname from the link's href
+                    const linkPath = new URL(link.href).pathname;
+                    
+                    // Check if the link's pathname matches the current path
+                    if (linkPath === currentPath) {
+                        // Add the active class to the matching link
+                        link.classList.add("active");
+                    }
+                });
+            });
+            function validateForm() {
+            const form = document.getElementById('contactForm');
+            if (form.checkValidity()) {
+            alert('Sent message successfully');
+            return true;
+            }
+            return false;
+            }
+            function toggleMenu() {
+                const navbar = document.querySelector('.navbar');
+                navbar.classList.toggle('active');
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="navbar">
+                    <li class="home"><a href="./home.html">Home page</a></li>
+                    <li class="about"><a href="./about.html">About Me</a></li>
+                    <li class="contact"><a href="./contact.html">Contact Me</a></li>
+                    <li class="gallery"><a href="./gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- <h2 class="contacttitle">GET IN TOUCH</h2> -->
+        <div class="contactbar">
+            <div class="form">
+                
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required  pattern="[a-zA-Z ]{3,20}$">
+        
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required  pattern="[a-zA-Z0-9_]+@[a-zA-Z]+\.[a-zA-Z]{2,}">
+        
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required pattern="/^[6-9][0-9]{9}$/">
+        
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required maxlength="256"></textarea>
+        
+                    <button type="submit" onclick="validateForm()">Submit</button>
+                </form>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-content">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="tel:+1234567890"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="footer-text">&copy; 2024 Sudugu Tejasvi. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

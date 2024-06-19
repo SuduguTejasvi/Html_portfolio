@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gallery Page</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script>
+            // JavaScript to highlight the active link
+            document.addEventListener("DOMContentLoaded", function() {
+                // Get the current URL path
+                const currentPath = window.location.pathname;
+                
+                // Select all navbar links
+                const navbarLinks = document.querySelectorAll(".navbar a");
+                
+                // Loop through each link
+                navbarLinks.forEach(link => {
+                    // Extract the pathname from the link's href
+                    const linkPath = new URL(link.href).pathname;
+                    
+                    // Check if the link's pathname matches the current path
+                    if (linkPath === currentPath) {
+                        // Add the active class to the matching link
+                        link.classList.add("active");
+                    }
+                });
+            });
+            function toggleMenu() {
+                const navbar = document.querySelector('.navbar');
+                navbar.classList.toggle('active');
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="navbar">
+                    <li class="home"><a href="./home.html">Home page</a></li>
+                    <li class="about"><a href="./about.html">About Me</a></li>
+                    <li class="contact"><a href="./contact.html">Contact Me</a></li>
+                    <li class="gallery"><a href="./gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h2 class="gallerytitle">GALLERY</h2>
+        <div class="galleryblock">   
+            <div class="child1">
+                <img class="pic1" src="../images/aboutpic.jpeg" alt="Phone image">
+            </div>
+            <div class="child2">
+                <img class="pic2" src="../images/pic.jpeg" alt="email image">
+            </div>
+            <div class="child3">
+                <img class="pic3" src="../images/pic3.jpeg" alt="Home image">
+            </div>
+            <div class="child4">
+                <img class="pic4" src="../images/pic4.jpeg" alt="Home image">
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-content">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="tel:+1234567890"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="footer-text">&copy; 2024 Sudugu Tejasvi. All rights reserved.</p>
+        </footer>
+    </body>
+</html>

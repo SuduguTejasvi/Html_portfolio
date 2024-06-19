@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Page</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM fully loaded and parsed");  // Debugging log
+
+            // JavaScript to highlight the active link
+            const currentPath = window.location.pathname;
+            const navbarLinks = document.querySelectorAll(".navbar a");
+
+            navbarLinks.forEach(link => {
+                const linkPath = new URL(link.href).pathname;
+                if (linkPath === currentPath) {
+                    link.classList.add("active");
+                }
+            });
+
+            // Function to toggle the navbar visibility
+            function toggleMenu() {
+                console.log("toggleMenu called");  // Debugging log
+                const navbar = document.querySelector('.navbar');
+                console.log("Navbar before toggle:", navbar.classList);  // Debugging log
+                navbar.classList.toggle('active');
+                console.log("Navbar after toggle:", navbar.classList);  // Debugging log
+            }
+
+            // Attach the toggleMenu function to the menu icon
+            const menuIcon = document.querySelector('.menu-icon');
+            menuIcon.addEventListener('click', toggleMenu);
+        });
+    </script>
+</head>
+<body class="about-page">
+    <header>
+        <nav>
+            <div class="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="navbar">
+                <li class="home"><a href="./home.html">Home page</a></li>
+                <li class="about"><a href="./about.html">About Me</a></li>
+                <li class="contact"><a href="./contact.html">Contact Me</a></li>
+                <li class="gallery"><a href="./gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main-content">
+        <div class="scrollable-content">
+            <div class="content">
+                <div class="profilepic">
+                    <img src="../images/aboutpic.jpeg" alt="profile pic" class="aboutprofilepic">
+                </div>
+                <div class="intro">
+                    <h2 class="abouttitle">About Me</h2>
+                    <p class="desc">I am Sudugu Tejasvi, currently working as a dev intern in zemoso technologies.
+                        I enjoy exploring the intersection of technology and creativity. When I'm not coding, you can find me diving into a gardening, experimenting with new recipes in the kitchen. These activities help me stay balanced and inspire fresh ideas in my work.
+
+                        I am an enthusiastic learner . I enjoy tackling challenging problems and am always eager to contribute to explore meaning that make a difference.
+                    </p>
+                    <h3 class="skillstitle">Skills</h3>
+                    <ul class="skills">
+                        <li class="java">Java</li>
+                        <li class="sql">SQL</li>
+                        <li class="c">C Programming</li>
+                        <li class="csharp">C# Asp.net</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="tel:+1234567890"><i class="fas fa-phone-alt"></i></a>
+            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p class="footer-text">&copy; 2024 Sudugu Tejasvi. All rights reserved.</p>
+    </footer>
+</body>
+</html>
